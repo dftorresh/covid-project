@@ -1,0 +1,10 @@
+{
+	"name": "ls_covid_project_kv",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://covid-project-kv.vault.azure.net/"
+		}
+	}
+}
