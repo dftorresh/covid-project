@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "covid19-project-df"
+		},
+		"ls_covid_data_dl_properties_typeProperties_url": {
+			"value": "https://covidinfodl.dfs.core.windows.net/"
+		},
+		"ls_covid_data_dl_properties_typeProperties_tenant": {
+			"value": "e9afc002-31c1-47b3-962c-99ac507abdf2"
+		},
+		"ls_covid_data_dl_properties_typeProperties_servicePrincipalId": {
+			"value": "0b22f273-b431-414f-a1bf-507524a0dea5"
+		},
+		"ls_covid_data_web_source_properties_typeProperties_url": {
+			"value": "https://opendata.ecdc.europa.eu"
+		},
+		"ls_covid_project_kv_properties_typeProperties_baseUrl": {
+			"value": "https://covid-project-kv.vault.azure.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
