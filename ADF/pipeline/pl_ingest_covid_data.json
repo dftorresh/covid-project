@@ -48,7 +48,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_raw_covid_data",
+						"referenceName": "ds_web_covid_data",
 						"type": "DatasetReference"
 					}
 				],
