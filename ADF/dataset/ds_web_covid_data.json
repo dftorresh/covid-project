@@ -1,5 +1,5 @@
 {
-	"name": "ds_raw_covid_data",
+	"name": "ds_web_covid_data",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_covid_data_web_source",
