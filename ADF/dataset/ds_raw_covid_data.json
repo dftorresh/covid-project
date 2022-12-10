@@ -1,0 +1,22 @@
+{
+	"name": "ds_raw_covid_data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_covid_data_web_source",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "covid19/hospitalicuadmissionrates/csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
