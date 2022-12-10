@@ -1,0 +1,9 @@
+{
+	"name": "covid19-project-df",
+	"location": "southcentralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f56f0ec0-efc4-4714-97bb-56043e1df79e",
+		"tenantId": "e9afc002-31c1-47b3-962c-99ac507abdf2"
+	}
+}
