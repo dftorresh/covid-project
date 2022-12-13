@@ -27,6 +27,10 @@
 			"type": "string",
 			"defaultValue": "https://covid-project-kv.vault.azure.net/"
 		},
+		"ls_databricks_covid_project_ws_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1211-015419-rr1lbkig"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -68,6 +72,9 @@
 					},
 					"ls_covid_data_dl_properties_typeProperties_servicePrincipalId": {
 						"value": "[parameters('ls_covid_data_dl_properties_typeProperties_servicePrincipalId')]"
+					},
+					"ls_databricks_covid_project_ws_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('ls_databricks_covid_project_ws_properties_typeProperties_existingClusterId')]"
 					}
 				}
 			},

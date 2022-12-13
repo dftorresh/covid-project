@@ -26,6 +26,10 @@
 		"ls_covid_project_kv_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://covid-project-kv.vault.azure.net/"
+		},
+		"ls_databricks_covid_project_ws_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1211-015419-rr1lbkig"
 		}
 	},
 	"variables": {
@@ -107,6 +111,43 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_web_covid_data')]",
 				"[concat(variables('factoryId'), '/datasets/ds_raw_covid_data_dl')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_process_covid_data')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "transform_and_enrich_data",
+						"type": "DatabricksNotebook",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/covid-project/data-processing/process-hospital-admission-data"
+						},
+						"linkedServiceName": {
+							"referenceName": "ls_databricks_covid_project_ws",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_databricks_covid_project_ws')]"
 			]
 		},
 		{
@@ -216,6 +257,30 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_databricks_covid_project_ws')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-1700382139422125.5.azuredatabricks.net",
+					"accessToken": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "ls_covid_project_kv",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "covid-databricks-workspace-token"
+					},
+					"existingClusterId": "[parameters('ls_databricks_covid_project_ws_properties_typeProperties_existingClusterId')]"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_covid_project_kv')]"
+			]
 		}
 	]
 }

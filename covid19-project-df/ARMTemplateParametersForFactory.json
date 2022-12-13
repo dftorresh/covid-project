@@ -19,6 +19,9 @@
 		},
 		"ls_covid_project_kv_properties_typeProperties_baseUrl": {
 			"value": "https://covid-project-kv.vault.azure.net/"
+		},
+		"ls_databricks_covid_project_ws_properties_typeProperties_existingClusterId": {
+			"value": "1211-015419-rr1lbkig"
 		}
 	}
 }
