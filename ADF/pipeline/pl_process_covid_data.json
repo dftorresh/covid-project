@@ -13,7 +13,14 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/covid-project/data-processing/process-hospital-admission-data"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks_covid_project_ws",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
