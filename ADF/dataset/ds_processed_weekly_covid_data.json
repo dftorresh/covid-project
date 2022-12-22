@@ -1,0 +1,64 @@
+{
+	"name": "ds_processed_weekly_covid_data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_covid_data_dl",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "weekly_data",
+				"fileSystem": "processed"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "country",
+				"type": "String"
+			},
+			{
+				"name": "country_code_2_digit",
+				"type": "String"
+			},
+			{
+				"name": "country_code_3_digit",
+				"type": "String"
+			},
+			{
+				"name": "population",
+				"type": "String"
+			},
+			{
+				"name": "reported_year_week",
+				"type": "String"
+			},
+			{
+				"name": "reported_week_start_date",
+				"type": "String"
+			},
+			{
+				"name": "reported_week_end_date",
+				"type": "String"
+			},
+			{
+				"name": "new_hospital_occupancy_count",
+				"type": "String"
+			},
+			{
+				"name": "new_icu_occupancy_count",
+				"type": "String"
+			},
+			{
+				"name": "source",
+				"type": "String"
+			}
+		]
+	}
+}
