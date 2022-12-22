@@ -1,5 +1,5 @@
 {
-	"name": "ds_raw_covid_data_dl",
+	"name": "ds_raw_covid_data_csv",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_covid_data_dl",

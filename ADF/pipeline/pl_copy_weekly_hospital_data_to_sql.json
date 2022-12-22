@@ -1,5 +1,5 @@
 {
-	"name": "pl_copy_data_to_sql",
+	"name": "pl_copy_weekly_hospital_data_to_sql",
 	"properties": {
 		"activities": [
 			{
@@ -169,7 +169,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_processed_weekly_covid_data",
+						"referenceName": "ds_processed_weekly_covid_data_csv",
 						"type": "DatasetReference"
 					}
 				],
