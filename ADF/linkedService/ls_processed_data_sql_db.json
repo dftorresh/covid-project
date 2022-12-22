@@ -1,0 +1,18 @@
+{
+	"name": "ls_processed_data_sql_db",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=covid-data-sql-server.database.windows.net;Initial Catalog=hospital_data_db;User ID=dftorresh",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "ls_covid_project_kv",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sql-db-authentication-password"
+			}
+		}
+	}
+}
