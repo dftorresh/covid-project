@@ -7,6 +7,11 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "covid19-project-df"
 		},
+		"ls_processed_data_sql_db_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_processed_data_sql_db'",
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=covid-data-sql-server.database.windows.net;Initial Catalog=hospital_data_db;User ID=dftorresh"
+		},
 		"ls_covid_data_dl_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://covidinfodl.dfs.core.windows.net/"
@@ -57,6 +62,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"ls_processed_data_sql_db_connectionString": {
+						"value": "[parameters('ls_processed_data_sql_db_connectionString')]"
 					},
 					"ls_covid_data_web_source_properties_typeProperties_url": {
 						"value": "[parameters('ls_covid_data_web_source_properties_typeProperties_url')]"

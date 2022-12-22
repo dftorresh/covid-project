@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "covid19-project-df"
 		},
+		"ls_processed_data_sql_db_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=covid-data-sql-server.database.windows.net;Initial Catalog=hospital_data_db;User ID=dftorresh"
+		},
 		"ls_covid_data_dl_properties_typeProperties_url": {
 			"value": "https://covidinfodl.dfs.core.windows.net/"
 		},
