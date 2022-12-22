@@ -1,0 +1,60 @@
+{
+	"name": "ds_weekly_hospital_data_sql_table",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_processed_data_sql_db",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "country",
+				"type": "varchar"
+			},
+			{
+				"name": "country_code_2_digit",
+				"type": "char"
+			},
+			{
+				"name": "country_code_3_digit",
+				"type": "char"
+			},
+			{
+				"name": "population",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "year_week",
+				"type": "varchar"
+			},
+			{
+				"name": "week_start_date",
+				"type": "date"
+			},
+			{
+				"name": "week_end_date",
+				"type": "date"
+			},
+			{
+				"name": "hospital_occupancy_count",
+				"type": "real",
+				"precision": 7
+			},
+			{
+				"name": "icu_occupancy_count",
+				"type": "real",
+				"precision": 7
+			},
+			{
+				"name": "testing_data_source",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "weekly_hospital_admissions"
+		}
+	}
+}
