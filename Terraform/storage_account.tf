@@ -6,6 +6,7 @@ resource "azurerm_storage_account" "sa" {
     account_replication_type = "LRS"
     account_kind = "StorageV2"
     is_hns_enabled = true
+    allow_blob_public_access = true
 }
 
 resource "azurerm_storage_container" "raw_data_container" {
