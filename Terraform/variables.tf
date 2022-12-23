@@ -32,3 +32,8 @@ variable "data_factory_name" {
   default     = "df-covid-project-28"
   description = "Data Factory instance that will orchestrate ingestion and transformation data processes"
 }
+
+variable "databricks_name" {
+  default     = "db-covid-project-28"
+  description = "Databricks workspace where data transformation tasks will be created"
+}
