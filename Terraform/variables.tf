@@ -8,6 +8,11 @@ variable "resource_group_name" {
   description = "Resource group where all the other resources will be created."
 }
 
+variable "storage_account_name" {
+  default     = "covid28datadl"
+  description = "Storage account where the data will be stored"
+}
+
 variable "raw_data_container_name" {
   default     = "raw"
   description = "Container where raw data will be stored"
@@ -21,4 +26,9 @@ variable "processed_data_container_name" {
 variable "lookup_data_container_name" {
   default     = "lookup"
   description = "Container containing some data used to enrich the covid dataset"
+}
+
+variable "data_factory_name" {
+  default     = "df-covid-project-28"
+  description = "Data Factory instance that will orchestrate ingestion and transformation data processes"
 }
