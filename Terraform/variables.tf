@@ -37,3 +37,7 @@ variable "databricks_name" {
   default     = "db-covid-project-28"
   description = "Databricks workspace where data transformation tasks will be created"
 }
+
+variable "service_principal_app_name" {
+  default     = "covid-project-28-app"
+}
