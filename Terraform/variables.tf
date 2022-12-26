@@ -41,3 +41,7 @@ variable "databricks_name" {
 variable "service_principal_app_name" {
   default     = "covid-project-28-app"
 }
+
+variable "key_vault_name" {
+  default     = "kv-covid-project-28"
+}
