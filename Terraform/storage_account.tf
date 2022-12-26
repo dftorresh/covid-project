@@ -26,3 +26,9 @@ resource "azurerm_storage_container" "lookup_data_container" {
     storage_account_name = azurerm_storage_account.sa.name
     container_access_type = "blob"
 }
+
+resource "azurerm_role_assignment" "test" {
+  scope                = azurerm_storage_account.sa.id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = azuread_service_principal.service_principal.id
+}
