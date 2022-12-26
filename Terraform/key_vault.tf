@@ -1,17 +1,17 @@
-data "azurerm_client_config" "current" {}
-data "azuread_client_config" "current" {}
+data "azurerm_client_config" "current_rm" {}
+data "azuread_client_config" "current_ad" {}
 
 resource "azurerm_key_vault" "key_vault" {
   name                       = var.key_vault_name
   location                   = var.location
   resource_group_name        = var.resource_group_name
-  tenant_id                  = data.azurerm_client_config.current.tenant_id
+  tenant_id                  = data.azurerm_client_config.current_rm.tenant_id
   sku_name                   = "standard"
   soft_delete_retention_days = 30
 
   access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azuread_client_config.current.object_id
+    tenant_id = data.azurerm_client_config.current_rm.tenant_id
+    object_id = data.azuread_client_config.current_ad.object_id
 
     key_permissions = [
       "Create",
