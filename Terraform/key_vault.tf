@@ -1,4 +1,5 @@
 data "azurerm_client_config" "current" {}
+data "azuread_client_config" "current" {}
 
 resource "azurerm_key_vault" "key_vault" {
   name                       = var.key_vault_name
@@ -10,7 +11,7 @@ resource "azurerm_key_vault" "key_vault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_client_config.current.object_id
+    object_id = data.azuread_client_config.current.object_id
 
     key_permissions = [
       "Create",
