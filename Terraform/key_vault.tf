@@ -24,13 +24,14 @@ resource "azurerm_key_vault" "key_vault" {
       "Get",
       "Delete",
       "Purge",
-      "Recover"
+      "Recover",
+      "List"
     ]
   }
 }
 
-resource "azurerm_key_vault_secret" "covid_project_app_secret" {
-  name         = "covid-project-28-secret"
+resource "azurerm_key_vault_secret" "covid_projectapp_secret" {
+  name         = "covid-project28-secret"
   value        = azuread_service_principal_password.sp_pass.value
   key_vault_id = azurerm_key_vault.key_vault.id
 }
