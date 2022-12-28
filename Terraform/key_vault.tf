@@ -8,6 +8,7 @@ resource "azurerm_key_vault" "key_vault" {
   tenant_id                  = data.azurerm_client_config.current_rm.tenant_id
   sku_name                   = "standard"
   soft_delete_retention_days = 30
+  depends_on                 = [azurerm_resource_group.rg]
 
   access_policy {
     tenant_id = data.azurerm_client_config.current_rm.tenant_id
