@@ -28,6 +28,16 @@ resource "azurerm_key_vault" "key_vault" {
       "List"
     ]
   }
+
+  access_policy {
+    tenant_id = data.azurerm_client_config.current_rm.tenant_id
+    object_id    = azurerm_data_factory.adf.identity.principal_id
+
+    secret_permissions = [
+      "Get",
+      "List"
+    ]
+  }
 }
 
 resource "azurerm_key_vault_secret" "covid_projectapp_secret" {
@@ -35,3 +45,4 @@ resource "azurerm_key_vault_secret" "covid_projectapp_secret" {
   value        = azuread_service_principal_password.sp_pass.value
   key_vault_id = azurerm_key_vault.key_vault.id
 }
+
