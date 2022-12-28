@@ -31,7 +31,7 @@ resource "azurerm_key_vault" "key_vault" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current_rm.tenant_id
-    object_id    = azurerm_data_factory.adf.identity.principal_id
+    object_id    = azurerm_data_factory.adf.identity[0].principal_id
 
     secret_permissions = [
       "Get",
