@@ -42,6 +42,10 @@ variable "databricks_cluster_name" {
   default     = "covid_data_transformation_cl"
 }
 
+variable "cluster_note_type" {
+  default="Standard_DS3_v2"
+}
+
 variable "cluster_num_workers" {
   type    = number
   default = 1

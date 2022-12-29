@@ -5,14 +5,6 @@ resource "azurerm_databricks_workspace" "db" {
   sku                 = "standard"
 }
 
-data "databricks_node_type" "smallest" {
-  local_disk = true
-
-  depends_on = [
-    azurerm_databricks_workspace.db
-  ]
-}
-
 data "databricks_spark_version" "latest_lts" {
   long_term_support = true
 
@@ -23,7 +15,7 @@ data "databricks_spark_version" "latest_lts" {
 
 resource "databricks_cluster" "data_transformation_cluster" {
   cluster_name            = var.databricks_cluster_name
-  node_type_id            = data.databricks_node_type.smallest.id
+  node_type_id            = var.cluster_note_type
   spark_version           = data.databricks_spark_version.latest_lts.id
   autotermination_minutes = var.cluster_autotermination_minutes
 
