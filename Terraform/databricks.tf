@@ -5,6 +5,14 @@ resource "azurerm_databricks_workspace" "db" {
   sku                 = "standard"
 }
 
+resource "databricks_token" "pat" {
+  comment          = "General purpose"
+  lifetime_seconds = 5000000
+  depends_on = [
+    azurerm_databricks_workspace.db
+  ]
+}
+
 data "databricks_spark_version" "latest_lts" {
   long_term_support = true
 
