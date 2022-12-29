@@ -29,7 +29,7 @@ resource "databricks_cluster" "data_transformation_cluster" {
 
   spark_conf = {
     "spark.databricks.cluster.profile" : "singleNode"
-    "spark.master" : "local[*, 4]"
+    "spark.master" : "local[*]"
   }
 
   custom_tags = {
