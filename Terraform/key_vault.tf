@@ -46,3 +46,10 @@ resource "azurerm_key_vault_secret" "covid_projectapp_secret" {
   key_vault_id = azurerm_key_vault.key_vault.id
 }
 
+
+resource "azurerm_key_vault_secret" "databricks_workspace_token" {
+  name         = "databricks_workspace_token"
+  value        = databricks_token.pat.token_value
+  key_vault_id = azurerm_key_vault.key_vault.id
+  depends_on   = [databricks_token.pat]
+}
