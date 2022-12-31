@@ -61,6 +61,7 @@ resource "databricks_azure_adls_gen2_mount" "mount_gen2" {
 }
 
 resource "databricks_mount" "processed" {
+  cluster_id  = databricks_cluster.data_transformation_cluster.id
   name        = "processed"
   abfs {
     storage_account_name   = azurerm_storage_account.sa.name
