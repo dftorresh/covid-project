@@ -48,24 +48,40 @@ resource "databricks_secret" "db_secret" {
   scope        = databricks_secret_scope.db_secre_scope.name
 }
 
-resource "databricks_azure_adls_gen2_mount" "mount_gen2" {
-  cluster_id             = databricks_cluster.data_transformation_cluster.id
-  storage_account_name   = azurerm_storage_account.sa.name
-  container_name         = azurerm_storage_container.raw_data_container.name
-  mount_name             = "raw"
-  tenant_id              = azuread_service_principal.service_principal.application_tenant_id
-  client_id              = azuread_service_principal.service_principal.application_id
-  client_secret_scope    = databricks_secret_scope.db_secre_scope.name
-  client_secret_key      = databricks_secret.db_secret.key
-  initialize_file_system = true
-}
-
 resource "databricks_mount" "processed" {
   cluster_id  = databricks_cluster.data_transformation_cluster.id
   name        = "processed"
   abfs {
     storage_account_name   = azurerm_storage_account.sa.name
     container_name         = azurerm_storage_container.processed_data_container.name
+    tenant_id              = azuread_service_principal.service_principal.application_tenant_id
+    client_id              = azuread_service_principal.service_principal.application_id
+    client_secret_scope    = databricks_secret_scope.db_secre_scope.name
+    client_secret_key      = databricks_secret.db_secret.key
+    initialize_file_system = true
+  }
+}
+
+resource "databricks_mount" "raw" {
+  cluster_id  = databricks_cluster.data_transformation_cluster.id
+  name        = "raw"
+  abfs {
+    storage_account_name   = azurerm_storage_account.sa.name
+    container_name         = azurerm_storage_container.raw_data_container.name
+    tenant_id              = azuread_service_principal.service_principal.application_tenant_id
+    client_id              = azuread_service_principal.service_principal.application_id
+    client_secret_scope    = databricks_secret_scope.db_secre_scope.name
+    client_secret_key      = databricks_secret.db_secret.key
+    initialize_file_system = true
+  }
+}
+
+resource "databricks_mount" "lookup" {
+  cluster_id  = databricks_cluster.data_transformation_cluster.id
+  name        = "lookup"
+  abfs {
+    storage_account_name   = azurerm_storage_account.sa.name
+    container_name         = azurerm_storage_container.lookup_data_container.name
     tenant_id              = azuread_service_principal.service_principal.application_tenant_id
     client_id              = azuread_service_principal.service_principal.application_id
     client_secret_scope    = databricks_secret_scope.db_secre_scope.name
