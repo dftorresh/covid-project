@@ -47,3 +47,15 @@ resource "databricks_secret" "db_secret" {
   string_value = azuread_service_principal_password.sp_pass.value
   scope        = databricks_secret_scope.db_secre_scope.name
 }
+
+resource "databricks_azure_adls_gen2_mount" "mount_gen2" {
+  cluster_id             = databricks_cluster.data_transformation_cluster.id
+  storage_account_name   = azurerm_storage_account.sa.name
+  container_name         = azurerm_storage_container.raw_data_container.name
+  mount_name             = "raw"
+  tenant_id              = azuread_service_principal.service_principal.application_tenant_id
+  client_id              = azuread_service_principal.service_principal.application_id
+  client_secret_scope    = databricks_secret_scope.db_secre_scope.name
+  client_secret_key      = databricks_secret.db_secret.key
+  initialize_file_system = true
+}
