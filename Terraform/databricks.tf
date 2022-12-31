@@ -36,3 +36,13 @@ resource "databricks_cluster" "data_transformation_cluster" {
     "ResourceClass" = "SingleNode"
   }
 }
+
+resource "databricks_secret_scope" "db_secre_scope" {
+  name = "terraform"
+}
+
+resource "databricks_secret" "db_secret" {
+  key          = "service_principal_key"
+  string_value = azuread_service_principal_password.sp_pass.value
+  scope        = databricks_secret_scope.db_secre_scope.name
+}
