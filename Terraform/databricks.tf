@@ -39,6 +39,7 @@ resource "databricks_cluster" "data_transformation_cluster" {
 
 resource "databricks_secret_scope" "db_secre_scope" {
   name = "terraform"
+  initial_manage_principal = "users"
 }
 
 resource "databricks_secret" "db_secret" {
