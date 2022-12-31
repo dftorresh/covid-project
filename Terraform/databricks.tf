@@ -59,3 +59,16 @@ resource "databricks_azure_adls_gen2_mount" "mount_gen2" {
   client_secret_key      = databricks_secret.db_secret.key
   initialize_file_system = true
 }
+
+resource "databricks_mount" "processed" {
+  name        = "processed"
+  abfs {
+    storage_account_name   = azurerm_storage_account.sa.name
+    container_name         = azurerm_storage_container.processed_data_container.name
+    tenant_id              = azuread_service_principal.service_principal.application_tenant_id
+    client_id              = azuread_service_principal.service_principal.application_id
+    client_secret_scope    = databricks_secret_scope.db_secre_scope.name
+    client_secret_key      = databricks_secret.db_secret.key
+    initialize_file_system = true
+  }
+}
