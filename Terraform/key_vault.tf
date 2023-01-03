@@ -41,14 +41,14 @@ resource "azurerm_key_vault" "key_vault" {
   }
 }
 
-resource "azurerm_key_vault_secret" "covid_projectapp_secret" {
+resource "azurerm_key_vault_secret" "covid19_project_app_secret" {
   name         = "covid-project28-secret"
   value        = azuread_service_principal_password.sp_pass.value
   key_vault_id = azurerm_key_vault.key_vault.id
 }
 
 
-resource "azurerm_key_vault_secret" "databricks_workspace_token" {
+resource "azurerm_key_vault_secret" "databricks_ws_token" {
   name         = "databricks-workspace-token"
   value        = databricks_token.pat.token_value
   key_vault_id = azurerm_key_vault.key_vault.id

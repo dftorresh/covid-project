@@ -39,7 +39,7 @@ variable "databricks_name" {
 }
 
 variable "databricks_cluster_name" {
-  default     = "covid_data_transformation_cl"
+  default     = "cl_covid_data_transformation"
 }
 
 variable "cluster_note_type" {

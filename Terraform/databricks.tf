@@ -37,7 +37,7 @@ resource "databricks_cluster" "data_transformation_cluster" {
   }
 }
 
-resource "databricks_secret_scope" "db_secre_scope" {
+resource "databricks_secret_scope" "db_secret_scope" {
   name = "terraform"
   initial_manage_principal = "users"
 }
@@ -45,7 +45,7 @@ resource "databricks_secret_scope" "db_secre_scope" {
 resource "databricks_secret" "db_secret" {
   key          = "service_principal_key"
   string_value = azuread_service_principal_password.sp_pass.value
-  scope        = databricks_secret_scope.db_secre_scope.name
+  scope        = databricks_secret_scope.db_secret_scope.name
 }
 
 resource "databricks_mount" "processed" {
@@ -56,7 +56,7 @@ resource "databricks_mount" "processed" {
     container_name         = azurerm_storage_container.processed_data_container.name
     tenant_id              = azuread_service_principal.service_principal.application_tenant_id
     client_id              = azuread_service_principal.service_principal.application_id
-    client_secret_scope    = databricks_secret_scope.db_secre_scope.name
+    client_secret_scope    = databricks_secret_scope.db_secret_scope.name
     client_secret_key      = databricks_secret.db_secret.key
     initialize_file_system = true
   }
@@ -70,7 +70,7 @@ resource "databricks_mount" "raw" {
     container_name         = azurerm_storage_container.raw_data_container.name
     tenant_id              = azuread_service_principal.service_principal.application_tenant_id
     client_id              = azuread_service_principal.service_principal.application_id
-    client_secret_scope    = databricks_secret_scope.db_secre_scope.name
+    client_secret_scope    = databricks_secret_scope.db_secret_scope.name
     client_secret_key      = databricks_secret.db_secret.key
     initialize_file_system = true
   }
@@ -84,7 +84,7 @@ resource "databricks_mount" "lookup" {
     container_name         = azurerm_storage_container.lookup_data_container.name
     tenant_id              = azuread_service_principal.service_principal.application_tenant_id
     client_id              = azuread_service_principal.service_principal.application_id
-    client_secret_scope    = databricks_secret_scope.db_secre_scope.name
+    client_secret_scope    = databricks_secret_scope.db_secret_scope.name
     client_secret_key      = databricks_secret.db_secret.key
     initialize_file_system = true
   }
