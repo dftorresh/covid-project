@@ -61,5 +61,13 @@ variable "service_principal_app_name" {
 }
 
 variable "key_vault_name" {
-  default     = "kv-covid-project-28"
+  default     = "kv-covid-project28"
+}
+
+variable "sql_server_name" {
+  default     = "sqlservercovidproject28"
+}
+
+variable "sql_database_name" {
+  default     = "covid_data"
 }
