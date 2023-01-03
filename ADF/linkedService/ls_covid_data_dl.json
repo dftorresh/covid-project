@@ -4,9 +4,9 @@
 		"annotations": [],
 		"type": "AzureBlobFS",
 		"typeProperties": {
-			"url": "https://covidinfodl.dfs.core.windows.net/",
+			"url": "https://covid28datadl.dfs.core.windows.net/",
 			"tenant": "e9afc002-31c1-47b3-962c-99ac507abdf2",
-			"servicePrincipalId": "0b22f273-b431-414f-a1bf-507524a0dea5",
+			"servicePrincipalId": "87c40ddb-5c63-44e6-b7bd-6409e8142f6c",
 			"servicePrincipalCredentialType": "ServicePrincipalKey",
 			"servicePrincipalCredential": {
 				"type": "AzureKeyVaultSecret",
@@ -14,7 +14,7 @@
 					"referenceName": "ls_covid_project_kv",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "covid-project-app-sp"
+				"secretName": "covid-project28-secret"
 			}
 		}
 	}

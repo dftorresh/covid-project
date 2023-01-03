@@ -4,16 +4,16 @@
 		"annotations": [],
 		"type": "AzureDatabricks",
 		"typeProperties": {
-			"domain": "https://adb-1700382139422125.5.azuredatabricks.net",
+			"domain": "https://adb-682897417858968.8.azuredatabricks.net",
 			"accessToken": {
 				"type": "AzureKeyVaultSecret",
 				"store": {
 					"referenceName": "ls_covid_project_kv",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "covid-databricks-workspace-token"
+				"secretName": "databricks-workspace-token"
 			},
-			"existingClusterId": "1211-015419-rr1lbkig"
+			"existingClusterId": "0103-030730-wiwtps2a"
 		}
 	}
 }

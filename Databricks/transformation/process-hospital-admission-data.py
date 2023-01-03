@@ -1,4 +1,8 @@
 # Databricks notebook source
+# MAGIC %run "../includes/configuration"
+
+# COMMAND ----------
+
 from pyspark.sql.types import StructType, StructField, StringType, DateType, DoubleType, LongType, IntegerType
 from pyspark.sql.functions import col, regexp_replace, min as fmin, max as fmax
 
@@ -17,7 +21,7 @@ data_schema = StructType(
 )
 
 hospital_admissions_df = spark.read.csv(
-    path='abfss://raw@covidinfodl.dfs.core.windows.net/hospital_admissions.csv',
+    path=f'{raw_data_folder_path}/hospital_admissions.csv',
     schema=data_schema
 )
 
@@ -57,7 +61,7 @@ data_schema = StructType(
 )
 
 country_info_df = spark.read.csv(
-    path='abfss://lookup@covidinfodl.dfs.core.windows.net/country_lookup.csv',
+    path=f'{lookup_data_folder_path}/country_lookup.csv',
     schema=data_schema,
     header=True
 )
@@ -85,7 +89,7 @@ select(
 # COMMAND ----------
 
 daily_data_df.write.csv(
-    path='abfss://processed@covidinfodl.dfs.core.windows.net/daily_data',
+    path=f'{processed_data_folder_path}/daily_data',
     mode='overwrite',
     header=True
 )
@@ -110,7 +114,7 @@ data_schema = StructType(
 )
 
 dates_data_df = spark.read.csv(
-    path='abfss://lookup@covidinfodl.dfs.core.windows.net/dim_date.csv',
+    path=f'{lookup_data_folder_path}/dim_date.csv',
     schema=data_schema,
     header=True
 )
@@ -165,7 +169,11 @@ weekly_data_df = weekly_data_df\
 # COMMAND ----------
 
 weekly_data_df.write.csv(
-    path='abfss://processed@covidinfodl.dfs.core.windows.net/weekly_data',
+    path=f'{processed_data_folder_path}/weekly_data',
     mode='overwrite',
     header=True
 )
+
+# COMMAND ----------
+
+
