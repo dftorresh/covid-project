@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "AzureKeyVault",
 		"typeProperties": {
-			"baseUrl": "https://covid-project-kv.vault.azure.net/"
+			"baseUrl": "https://kv-covid-project28.vault.azure.net/"
 		}
 	}
 }
