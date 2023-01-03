@@ -4,14 +4,14 @@
 		"annotations": [],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
-			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=covid-data-sql-server.database.windows.net;Initial Catalog=hospital_data_db;User ID=dftorresh",
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sqlservercovidproject28.database.windows.net;Initial Catalog=covid_data;User ID=aduser",
 			"password": {
 				"type": "AzureKeyVaultSecret",
 				"store": {
 					"referenceName": "ls_covid_project_kv",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "sql-db-authentication-password"
+				"secretName": "sql-db-pass"
 			}
 		}
 	}
