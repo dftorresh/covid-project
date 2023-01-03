@@ -14,6 +14,13 @@ resource "azurerm_mssql_firewall_rule" "allow_my_public_ip" {
   end_ip_address   = "186.114.44.183"
 }
 
+resource "azurerm_mssql_firewall_rule" "allow_az_resources" {
+  name                = "allow-azure-service"
+  server_id        = azurerm_mssql_server.sql_server.id
+  start_ip_address    = "0.0.0.0"
+  end_ip_address      = "0.0.0.0"
+}
+
 resource "azurerm_mssql_database" "sql_database" {
   name           = var.sql_database_name
   server_id      = azurerm_mssql_server.sql_server.id
