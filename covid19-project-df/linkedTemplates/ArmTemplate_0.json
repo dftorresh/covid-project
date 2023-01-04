@@ -455,7 +455,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Copy Covid19 Data",
+						"name": "Copy Covid Data",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
