@@ -6,25 +6,25 @@
 			"value": "covid19-project-df"
 		},
 		"ls_processed_data_sql_db_connectionString": {
-			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=covid-data-sql-server.database.windows.net;Initial Catalog=hospital_data_db;User ID=dftorresh"
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sqlservercovidproject28.database.windows.net;Initial Catalog=covid_data;User ID=aduser"
 		},
 		"ls_covid_data_dl_properties_typeProperties_url": {
-			"value": "https://covidinfodl.dfs.core.windows.net/"
+			"value": "https://covid28datadl.dfs.core.windows.net/"
 		},
 		"ls_covid_data_dl_properties_typeProperties_tenant": {
 			"value": "e9afc002-31c1-47b3-962c-99ac507abdf2"
 		},
 		"ls_covid_data_dl_properties_typeProperties_servicePrincipalId": {
-			"value": "0b22f273-b431-414f-a1bf-507524a0dea5"
+			"value": "87c40ddb-5c63-44e6-b7bd-6409e8142f6c"
 		},
 		"ls_covid_data_web_source_properties_typeProperties_url": {
 			"value": "https://opendata.ecdc.europa.eu"
 		},
 		"ls_covid_project_kv_properties_typeProperties_baseUrl": {
-			"value": "https://covid-project-kv.vault.azure.net/"
+			"value": "https://kv-covid-project28.vault.azure.net/"
 		},
 		"ls_databricks_covid_project_ws_properties_typeProperties_existingClusterId": {
-			"value": "1211-015419-rr1lbkig"
+			"value": "0103-030730-wiwtps2a"
 		},
 		"containerUri": {
 			"value": ""

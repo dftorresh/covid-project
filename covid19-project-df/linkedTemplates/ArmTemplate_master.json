@@ -10,11 +10,11 @@
 		"ls_processed_data_sql_db_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_processed_data_sql_db'",
-			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=covid-data-sql-server.database.windows.net;Initial Catalog=hospital_data_db;User ID=dftorresh"
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sqlservercovidproject28.database.windows.net;Initial Catalog=covid_data;User ID=aduser"
 		},
 		"ls_covid_data_dl_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://covidinfodl.dfs.core.windows.net/"
+			"defaultValue": "https://covid28datadl.dfs.core.windows.net/"
 		},
 		"ls_covid_data_dl_properties_typeProperties_tenant": {
 			"type": "string",
@@ -22,7 +22,7 @@
 		},
 		"ls_covid_data_dl_properties_typeProperties_servicePrincipalId": {
 			"type": "string",
-			"defaultValue": "0b22f273-b431-414f-a1bf-507524a0dea5"
+			"defaultValue": "87c40ddb-5c63-44e6-b7bd-6409e8142f6c"
 		},
 		"ls_covid_data_web_source_properties_typeProperties_url": {
 			"type": "string",
@@ -30,11 +30,11 @@
 		},
 		"ls_covid_project_kv_properties_typeProperties_baseUrl": {
 			"type": "string",
-			"defaultValue": "https://covid-project-kv.vault.azure.net/"
+			"defaultValue": "https://kv-covid-project28.vault.azure.net/"
 		},
 		"ls_databricks_covid_project_ws_properties_typeProperties_existingClusterId": {
 			"type": "string",
-			"defaultValue": "1211-015419-rr1lbkig"
+			"defaultValue": "0103-030730-wiwtps2a"
 		},
 		"containerUri": {
 			"type": "string",
