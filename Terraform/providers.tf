@@ -10,9 +10,20 @@ terraform {
       source  = "hashicorp/random"
       version = "~>3.0"
     }
+    databricks = {
+      source = "databricks/databricks"
+    }
   }
 }
 
 provider "azurerm" {
-  features {}
+  features {
+    key_vault {
+      purge_soft_delete_on_destroy    = true
+    }
+  }
+}
+
+provider "databricks" {
+  azure_workspace_resource_id = azurerm_databricks_workspace.db.id
 }

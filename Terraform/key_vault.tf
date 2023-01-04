@@ -7,7 +7,8 @@ resource "azurerm_key_vault" "key_vault" {
   resource_group_name        = var.resource_group_name
   tenant_id                  = data.azurerm_client_config.current_rm.tenant_id
   sku_name                   = "standard"
-  soft_delete_retention_days = 30
+  soft_delete_retention_days = 7
+  purge_protection_enabled   = false
   depends_on                 = [azurerm_resource_group.rg]
 
   access_policy {
@@ -40,9 +41,16 @@ resource "azurerm_key_vault" "key_vault" {
   }
 }
 
-resource "azurerm_key_vault_secret" "covid_projectapp_secret" {
+resource "azurerm_key_vault_secret" "covid19_project_app_secret" {
   name         = "covid-project28-secret"
   value        = azuread_service_principal_password.sp_pass.value
   key_vault_id = azurerm_key_vault.key_vault.id
 }
 
+
+resource "azurerm_key_vault_secret" "databricks_ws_token" {
+  name         = "databricks-workspace-token"
+  value        = databricks_token.pat.token_value
+  key_vault_id = azurerm_key_vault.key_vault.id
+  depends_on   = [databricks_token.pat]
+}

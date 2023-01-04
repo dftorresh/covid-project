@@ -38,10 +38,36 @@ variable "databricks_name" {
   description = "Databricks workspace where data transformation tasks will be created"
 }
 
+variable "databricks_cluster_name" {
+  default     = "cl_covid_data_transformation"
+}
+
+variable "cluster_note_type" {
+  default="Standard_DS3_v2"
+}
+
+variable "cluster_num_workers" {
+  type    = number
+  default = 1
+}
+
+variable "cluster_autotermination_minutes" {
+  type    = number
+  default = 10
+}
+
 variable "service_principal_app_name" {
   default     = "covid-project-28-app"
 }
 
 variable "key_vault_name" {
-  default     = "kv-covid-project-28"
+  default     = "kv-covid-project28"
+}
+
+variable "sql_server_name" {
+  default     = "sqlservercovidproject28"
+}
+
+variable "sql_database_name" {
+  default     = "covid_data"
 }
