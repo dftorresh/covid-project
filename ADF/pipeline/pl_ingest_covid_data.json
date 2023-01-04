@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy Covid Data",
+				"name": "Copy Covid19 Data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
